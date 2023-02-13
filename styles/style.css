@@ -1,0 +1,43 @@
+* {
+
+}
+
+.logo {
+    object-fit: contain;
+    max-width: 100%;
+    filter: drop-shadow(0 0 0.5rem darkred);
+    margin: 1rem;
+}
+
+nav {
+    margin: 1rem;
+}
+
+nav>button {
+    border-image: linear-gradient(0.25turn, deeppink,  crimson) 1 !important;
+}
+
+a[href="#"] {
+    filter: drop-shadow( 0.1rem 0.1rem deeppink);
+    color: pink;
+} 
+
+a {
+    text-decoration: none;
+    color:deeppink;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-img-top {
+    height: 8rem;
+    object-fit: cover;
+}
+
+.card {
+    border: 1px solid deeppink;
+    width: 12rem;
+}
