@@ -1,5 +1,6 @@
 * {
-
+margin: 0;
+padding: 0;
 }
 
 .logo {
@@ -7,37 +8,81 @@
     max-width: 100%;
     filter: drop-shadow(0 0 0.5rem darkred);
     margin: 1rem;
+    min-width: 10vh;
+}
+
+h1 {
+    display: none;
 }
 
 nav {
     margin: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
-nav>button {
-    border-image: linear-gradient(0.25turn, deeppink,  crimson) 1 !important;
+nav>a {
+    /* border-image: linear-gradient(0.25turn, deeppink,  crimson) 1 !important; */
+    border-radius: 0 !important;
+    color:deeppink !important;
+    background-color: rgba(30,30,30,0.6) !important;
 }
 
-a[href="#"] {
-    filter: drop-shadow( 0.1rem 0.1rem deeppink);
-    color: pink;
+nav>a:hover {
+    background-color: rgba(50,50,50,1) !important;
+}
+
+nav>a[href="#"] {
+    /* filter: drop-shadow( 0.1rem 0.1rem deeppink); */
+    color: pink !important;
 } 
 
 a {
-    text-decoration: none;
     color:deeppink;
-}
-
-main {
-    display: flex;
-    justify-content: space-around;
+    border-radius: 0;
 }
 
 .card-img-top {
     height: 8rem;
     object-fit: cover;
+    width: 100%;
+    border-radius: 0;
+    padding: 5px;
 }
 
 .card {
-    border: 1px solid deeppink;
+    /* border: 1px solid deeppink; */
+    border-image: linear-gradient(0.25turn, deeppink,  crimson) 1;
     width: 12rem;
+    padding: 0;
+    margin: 10px 0;
+    background-color: rgba(30,30,30,0.6) !important;
+}
+
+.row {
+    justify-content: space-evenly;
+    --bs-gutter-x: 0 !important;
+}
+
+.crazyborder {
+    border-image: linear-gradient(0.25turn, deeppink,  crimson) 1 !important;
+}
+
+main {
+    background-image: url("../assets/background.png");
+}
+
+.btn {
+    border-radius: 0;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.crazybackground {
+    background-image: linear-gradient(0.25turn, deeppink,  crimson) !important;
+    height: 1px;
 }
