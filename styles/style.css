@@ -24,7 +24,6 @@ nav {
 }
 
 nav>a {
-    /* border-image: linear-gradient(0.25turn, deeppink,  crimson) 1 !important; */
     border-radius: 0 !important;
     color:grey !important;
     background-color: rgba(30,30,30,0.6) !important;
@@ -56,7 +55,6 @@ a {
 }
 
 .card {
-    /* border: 1px solid deeppink; */
     border-image: linear-gradient(0.25turn, deeppink,  crimson) 1;
     width: 12rem;
     padding: 0;
@@ -67,6 +65,7 @@ a {
 .row {
     justify-content: space-evenly;
     --bs-gutter-x: 0 !important;
+    width: auto !important;
 }
 
 .crazyborder {
@@ -113,33 +112,44 @@ h2 {
     background-color: rgba(0,0,0,0.6) !important;
 }
 
-.inlineflex {
-    display: inline-flex;
-}
-
 .colcenter {
     justify-content:space-evenly;
     align-items:center;
     display: inline-flex;
 }
 
-.colleft{
+.hcolleft {
     justify-content:flex-start;
     align-items:center;
     display: inline-flex;
     padding-left: 20px;
 }
 
-.colright {
+.hcolright {
     justify-content:flex-end;
     align-items:center;
     display: inline-flex;
     padding-right: 20px;
 }
 
+.colleft {
+    justify-content:flex-end;
+    align-items:center;
+    display: inline-flex;
+    padding: 5px;
+}
+
+.colright {
+    justify-content:flex-start;
+    align-items:center;
+    display: inline-flex;
+    padding: 5px;
+}
+
 footer img {
     max-width: 4rem;
-    margin: 20px;
+    margin: 10px;
+    display: inline-flex;
 }
 
 .h-img {
@@ -150,3 +160,90 @@ footer img {
 .h-img:hover {
     opacity: 1;
 }
+
+label {
+    margin-right: 5px;
+}
+
+.searchbar {
+    width: auto;
+    display: inline-flex;
+}
+
+.form-check-inline {
+    display: inline-flex;
+}
+
+.form-group {
+    width: auto;
+}
+
+.form-check-input {
+    margin-right: 5px;
+}
+
+table {
+    width: 90% !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+th {
+    font-size: 1.5rem;
+    background-color:rgba(50,50,50,1) !important;
+}
+
+form {
+    width: 80%;
+    margin: auto; 
+}
+
+textarea {
+    width: 100% !important;
+}
+
+form>.btn {
+    margin-right: 5px;
+} 
+
+.details {
+    display: flex;
+    /* width: 300px; */
+    justify-content: center;
+    align-items: center;
+}
+
+.inner {
+    display: flex;
+    width: 80%;
+    height: 20rem;
+    margin: 50px;
+    background-color:rgba(50,50,50,1);
+    border-image: linear-gradient(0.25turn, deeppink,  crimson) 1 !important;
+    padding: 10px;
+}
+
+.innercontainer {
+object-fit: cover;
+/* border: 1px solid white; */
+height: 95%;
+width: auto;
+margin: 0;
+}
+
+.detailsimg {
+    object-fit: cover;
+    height: 100%;
+    width: 90%;
+    padding: 0;
+    border-radius: 10%;
+    border: 1px solid white;
+    margin: 8px;
+}
+
+.innertext {
+    justify-content: center;
+    align-items: center;
+}
+
