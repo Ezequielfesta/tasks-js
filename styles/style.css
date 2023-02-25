@@ -7,7 +7,7 @@ padding: 0;
     object-fit: contain;
     max-width: 100%;
     filter: drop-shadow(0 0 0.5rem darkred);
-    margin: 1rem;
+    margin: 0.5rem 0 0.5rem 1rem;
     min-width: 10vh;
 }
 
