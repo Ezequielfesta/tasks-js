@@ -181,7 +181,8 @@ label {
 }
 
 .form-check-input {
-    margin-right: 5px;
+    margin-right: -5px;
+    margin-left: 5px;
 }
 
 table {
@@ -267,4 +268,8 @@ margin: 0;
 .card {
     width: 16rem;
     margin: 15px 15px;
+}
+
+#checkboxcontainer {
+    gap: 10px;
 }

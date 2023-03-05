@@ -1,3 +1,27 @@
+//CHECKBOX CONTAINER
+
+let categories = [];
+for (i = 0; i < data.events.length; i++) {
+if(!categories.includes(data.events[i].category))
+{categories.push(data.events[i].category)}
+}
+
+for (i = 0; i < categories.length; i++) {
+let formcheckinlineElement = document.getElementById("checkboxcontainer");
+formcheckinlineElement.className = "form-check-inline";
+let formcheckinputElement = document.createElement("input");
+formcheckinputElement.className = "form-check-input";
+formcheckinputElement.type = "checkbox";
+formcheckinputElement.value = "category"+(i+1);
+formcheckinputElement.id = "inlineCheckbox"+(i+1);
+let formchecklabelElement = document.createElement("label");
+formchecklabelElement.for = "inlineCheckbox"+(i+1);
+formchecklabelElement.innerHTML = categories[i];
+
+formcheckinlineElement.appendChild(formcheckinputElement);
+formcheckinlineElement.appendChild(formchecklabelElement);
+}
+
 //CARD CONTAINER 
 
 for (i = 0; i < data.events.length; i++) {
