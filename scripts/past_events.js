@@ -53,7 +53,7 @@ for (i = 0; i < data.events.length; i++) {
   cardpriceElement.innerHTML = "Price:<br>$ " + data.events[i].price;
   let cardanchorElement = document.createElement("a");
   cardanchorElement.className = "btn btn-dark crazyborder";
-  cardanchorElement.href = "./details.html#Cinema";
+  cardanchorElement.href = "./details.html?id=" + data.events[i]._id;
   cardanchorElement.innerHTML = "Details";
 
   cardcontainerElement.appendChild(cardElement);
