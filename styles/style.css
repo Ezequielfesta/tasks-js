@@ -178,6 +178,7 @@ label {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
+    margin: 10px 20px;
 }
 
 .form-check-input {
@@ -276,7 +277,6 @@ margin: 0;
 }
 
 #checkboxcontainer {
-    margin: 10px 20px;
     gap: 10px;
     flex-wrap: wrap;
 }
