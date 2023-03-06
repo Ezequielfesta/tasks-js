@@ -65,7 +65,7 @@ function generateCards(paramcheck) {
           cardimgElement.className = "row card-img-top";
           let cardbodyElement = document.createElement("div");
           cardbodyElement.className = "row card-body";
-          let cardtitleElement = document.createElement("h5");
+          let cardtitleElement = document.createElement("h4");
           cardtitleElement.className = "row card-title";
           cardtitleElement.innerHTML = data.events[i].name;
           let cardtextElement = document.createElement("p");
@@ -78,7 +78,7 @@ function generateCards(paramcheck) {
           let cardcol2Element = document.createElement("div");
           cardcol2Element.className = "col cardcolcenter right";
           let cardpriceElement = document.createElement("p");
-          cardpriceElement.innerHTML = "Price:<br>$ " + data.events[i].price;
+          cardpriceElement.innerHTML = "<b>Price:</b><br>$ " + data.events[i].price;
           let cardanchorElement = document.createElement("a");
           cardanchorElement.className = "btn btn-dark crazyborder";
           cardanchorElement.href = "./details.html?id=" + data.events[i]._id;
