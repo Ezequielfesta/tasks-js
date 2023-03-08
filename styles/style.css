@@ -1,6 +1,7 @@
 * {
 margin: 0;
 padding: 0;
+font-size: 1rem;
 }
 
 .logo {
@@ -8,7 +9,11 @@ padding: 0;
     max-width: 100%;
     filter: drop-shadow(0 0 0.5rem darkred);
     margin: 0.5rem 0 0.5rem 1rem;
-    min-width: 10vh;
+    min-width: 130px;
+}
+
+.itemcenter{
+    align-items: center;
 }
 
 h1 {
@@ -27,6 +32,7 @@ nav>a {
     border-radius: 0 !important;
     color:grey !important;
     background-color: rgba(30,30,30,0.6) !important;
+    
 }
 
 nav>a:hover {
@@ -65,7 +71,6 @@ a {
 .row {
     justify-content: space-evenly;
     --bs-gutter-x: 0 !important;
-    /* width: auto !important; */
 }
 
 .crazyborder {
@@ -168,6 +173,7 @@ label {
 .searchbar {
     width: auto;
     display: inline-flex;
+    margin: 0px 3px 0px 6px;
 }
 
 .form-check-inline {
@@ -182,8 +188,7 @@ label {
 }
 
 .form-check-input {
-    margin-right: 2px;
-    margin-left: 6px;
+    margin: 4px 3px 10px 6px;
 }
 
 table {
@@ -213,7 +218,6 @@ form>.btn {
 
 .details {
     display: flex;
-    /* width: 300px; */
     justify-content: center;
     align-items: center;
 }
@@ -230,7 +234,6 @@ form>.btn {
 
 .innercontainer {
 object-fit: cover;
-/* border: 1px solid white; */
 height: 95%;
 width: auto;
 margin: 0;

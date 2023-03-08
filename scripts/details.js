@@ -24,7 +24,7 @@ let placetextElement = document.createElement("p");
 placetextElement.className = "col card-text mt-4";
 placetextElement.innerHTML = "<b>Place:</b><br>"+data.events[id].place;
 let datetextElement = document.createElement("p");
-datetextElement.className = "col card-text mt-4";
+datetextElement.className = "col card-text";
 datetextElement.innerHTML = "<b>Date:</b><br>"+data.events[id].date;
 let capacitytextElement = document.createElement("p");
 capacitytextElement.className = "col card-text mt-4";
@@ -40,7 +40,9 @@ cardrowElement.className = "row mt-4";
 let cardcol1Element = document.createElement("div");
 cardcol1Element.className = "col cardcolcenter";
 let cardcol2Element = document.createElement("div");
-cardcol2Element.className = "col cardcolcenter right";
+cardcol2Element.className = "col cardcolcenter";
+let cardcol3Element = document.createElement("div");
+cardcol3Element.className = "col cardcolcenter right";
 let cardpriceElement = document.createElement("p");
 cardpriceElement.innerHTML = "<b>Price:</b><br>$ " + data.events[id].price;
 let cardanchorElement = document.createElement("a");
@@ -55,7 +57,6 @@ cardbodyElement.appendChild(cardtitleElement);
 cardbodyElement.appendChild(cardtextElement);
 cardbodyElement.appendChild(categorytextElement);
 cardbodyElement.appendChild(placetextElement);
-cardbodyElement.appendChild(datetextElement);
 cardbodyElement.appendChild(capacitytextElement);
 if(data.events[id].hasOwnProperty('assistance')){
 cardbodyElement.appendChild(assistancetextElement);}
@@ -64,5 +65,7 @@ cardbodyElement.appendChild(estimatetextElement);}
 cardbodyElement.appendChild(cardrowElement);
 cardrowElement.appendChild(cardcol1Element);
 cardrowElement.appendChild(cardcol2Element);
+cardrowElement.appendChild(cardcol3Element);
 cardcol1Element.appendChild(cardpriceElement);
-cardcol2Element.appendChild(cardanchorElement);
+cardcol2Element.appendChild(datetextElement);
+cardcol3Element.appendChild(cardanchorElement);
