@@ -15,7 +15,6 @@ for (i = 0; i < categories.length; i++) {
   formcheckinputElement.type = "checkbox";
   formcheckinputElement.value = categories[i];
   formcheckinputElement.id = "checkbox" + i;
-  formcheckinputElement.checked = "checked";
   let formchecklabelElement = document.createElement("label");
   formchecklabelElement.for = "checkbox" + i;
   formchecklabelElement.innerHTML = categories[i];
@@ -48,15 +47,24 @@ searchbtn.addEventListener("click", (e) => {
 //DYNAMIC CARD GENERATOR 
 //----------------------
 
-function generateCards(paramcheck) {
+function generateCards(param) {
   let cardcontainerElement = document.getElementById("cardcontainer");
   cardcontainerElement.innerHTML = "";
   let cardExists = false;
+  let emptycheck = false;
+  let existsflag = false;
+  let aux = param.length;
+  let auxparam = [];
+  if (param.length == 0) { emptycheck = true; }
   for (i = 0; i < data.events.length; i++) {
     if (Date.parse(data.currentDate) > Date.parse(data.events[i].date)) {
       if (data.events[i].name.toLowerCase().includes(input.value.toLowerCase()) || data.events[i].description.toLowerCase().includes(input.value.toLowerCase())) {
-        for (j = 0; j < paramcheck.length; j++) {
-          if (paramcheck[j].value == data.events[i].category) {
+        if (emptycheck == true) { aux = 1 }
+        for (j = 0; j < aux; j++) {
+          if (emptycheck == false) { auxparam = param[j].value }
+          if (auxparam == data.events[i].category) { existsflag = true }
+          else { existsflag = false }
+          if (emptycheck == true || existsflag == true) {
             cardExists = true;
             let cardElement = document.createElement("div");
             cardElement.className = "card bg-dark text-white";
@@ -82,7 +90,7 @@ function generateCards(paramcheck) {
             cardpriceElement.innerHTML = "<b>Price:</b><br>$ " + data.events[i].price;
             let cardanchorElement = document.createElement("a");
             cardanchorElement.className = "btn btn-dark crazyborder";
-            cardanchorElement.href = "./details.html?id=" + data.events[i]._id;
+            cardanchorElement.href = "./details.html?id=" + data.events[i]._id + "#details";
             cardanchorElement.innerHTML = "Details";
 
             cardcontainerElement.appendChild(cardElement);
@@ -102,7 +110,6 @@ function generateCards(paramcheck) {
   }
 
   if (cardExists == false) {
-    let cardcontainerElement = document.getElementById("cardcontainer");
     cardcontainerElement.innerHTML = "<h3 class=text-white>No matching results.</h3><h5 class=text-white>Try selecting a different filter.</h5>";
   }
 }
