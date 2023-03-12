@@ -1,3 +1,7 @@
+//AMAZING EVENTS API
+//------------------
+let url_api = "https://mindhub-xj03.onrender.com/api/amazing";
+console.log(url_api);
 //DYNAMIC CHECKBOX GENERATOR AND SEARCH BAR
 //-----------------------------------------
 let categories = [];
@@ -23,30 +27,24 @@ for (i = 0; i < categories.length; i++) {
   formcheckdivElement.appendChild(formchecklabelElement);
 }
 
-let searchbar = document.getElementById("searchbar")
-let input = document.getElementById("search")
-let searchbtn = document.getElementById("submit")
-input.value = ""
+let searchbar = document.getElementById("searchbar");
+let input = document.getElementById("search");
+let searchbtn = document.getElementById("submit");
+input.value = ""; //Clear search input field on load
+
+function isSelected() {
+  let selected = Array.from(checkboxButtons).filter(checkbox => checkbox.checked);
+  generateCards(selected);
+}
 
 let checkboxButtons = document.querySelectorAll("input[type=checkbox]");
 checkboxButtons.forEach(checkbox => checkbox.addEventListener("change", isSelected));
-let selected = Array.from(checkboxButtons).filter(checkbox => checkbox.checked);
-generateCards(selected);
+searchbtn.addEventListener("click", isSelected)
 
-function isSelected() {
-  let selected = Array.from(checkboxButtons).filter(checkbox => checkbox.checked)
-  generateCards(selected)
-}
-
-searchbtn.addEventListener("click", (e) => {
-  let selected = Array.from(checkboxButtons).filter(checkbox => checkbox.checked)
-  generateCards(selected)
-}
-)
+isSelected();
 
 //DYNAMIC CARD GENERATOR 
 //----------------------
-
 function generateCards(param) {
   let cardcontainerElement = document.getElementById("cardcontainer");
   cardcontainerElement.innerHTML = "";
