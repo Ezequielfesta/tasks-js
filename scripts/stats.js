@@ -37,6 +37,8 @@ async function getData() {
         var categoriesattendance_u = [];
         var categoriesrevenue_p = [];
         var categoriesattendance_p = [];
+        var counter1 = [];
+        var counter2 = [];
 
         for (i = 0; i < data.events.length; i++) {
             if (!categories.includes(data.events[i].category)) { categories.push(data.events[i].category) }
@@ -49,38 +51,36 @@ async function getData() {
             categoriesattendance_p[i] = 0;
         }
 
-        function categoryCheck() {
+        function categoryDate() {
 
-            for (j = 0; j < data.events.length; j++) {
- 
-                for (i = 0; i < categories.length; i++) {
+            for (j = 0; j < categories.length; j++) {
+                counter1[j] = 0
+                counter2[j] = 0
+                for (i = 0; i < data.events.length; i++) {
 
-                    if (Date.parse(data.currentDate) > Date.parse(data.events[j].date)) {
-                 
-                        if (data.events[j].category == categories[i]) {
-                            if ((parseInt(data.events[j].price) * parseInt(data.events[j].assistance)) > parseInt(categoriesrevenue_u[i])) {
-                                categoriesrevenue_u[i] = parseInt(data.events[j].price) * parseInt(data.events[j].assistance);
-                            }
-                            if (((parseInt(data.events[j].assistance) * 100) / parseInt(data.events[j].capacity)) > parseInt(categoriesattendance_u[i])) {
-                                categoriesattendance_u[i] = ((parseInt(data.events[j].assistance) * 100) / parseInt(data.events[j].capacity))
-                            }
-                        
+                    if (Date.parse(data.currentDate) < Date.parse(data.events[i].date)) { // Upcoming Event
+
+                        if (data.events[i].category == categories[j]) {
+                            categoriesrevenue_u[j] = categoriesrevenue_u[j] + (Number(data.events[i].price) * Number(data.events[i].estimate));
+                            counter1[j]++
+                            categoriesattendance_u[j] = categoriesattendance_u[j] + ((Number(data.events[i].estimate) * 100) / Number(data.events[i].capacity))
                         }
-                    } else if (Date.parse(data.currentDate) > Date.parse(data.events[j].date)) {
-                        if (data.events[j].category == categories[i]) {
-                            if ((parseInt(data.events[j].price) * parseInt(data.events[j].assistance)) > parseInt(categoriesrevenue_p[i])) {
-                                categoriesrevenue_p[i] = parseInt(data.events[j].price) * parseInt(data.events[j].assistance);
-                            }
-                            if (((parseInt(data.events[j].assistance) * 100) / parseInt(data.events[j].capacity)) > parseInt(categoriesattendance_p[i])) {
-                                categoriesattendance_p[i] = ((parseInt(data.events[j].assistance) * 100) / parseInt(data.events[j].capacity))
-                            }
+                    } else if (Date.parse(data.currentDate) > Date.parse(data.events[i].date)) { // Past Event
+
+                        if (data.events[i].category == categories[j]) {
+                            categoriesrevenue_p[j] = categoriesrevenue_p[j] + (Number(data.events[i].price) * Number(data.events[i].assistance));
+                            counter2[j]++
+                            categoriesattendance_p[j] = categoriesattendance_p[j] + ((Number(data.events[i].assistance) * 100) / Number(data.events[i].capacity))
                         }
                     }
                 }
+                categoriesattendance_u[j] = categoriesattendance_u[j] / counter1[j]
+                categoriesattendance_p[j] = categoriesattendance_p[j] / counter2[j]
+                if (categoriesrevenue_u[j] == 0) { categoriesattendance_u[j] = 0 }
+                if (categoriesrevenue_p[j] == 0) { categoriesattendance_p[j] = 0 }
             }
-            }
-
-        categoryCheck();
+        }
+        categoryDate();
 
         let USDollar = new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -93,11 +93,15 @@ async function getData() {
         let tr3Element = document.getElementById("tr3");
 
         for (i = categories.length - 1; i >= 0; i--) {
-            tr2Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>' + USDollar.format(categoriesrevenue_u[i]) + '</td><td>' + categoriesattendance_u[i].toFixed(2) + ' %</td></tr>')
+            if(categoriesrevenue_u[i]==0 && categoriesattendance_u[i]==0)
+            {tr2Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>No events</td><td>No events</td></tr>')} else
+            {tr2Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>' + USDollar.format(categoriesrevenue_u[i]) + '</td><td>' + categoriesattendance_u[i].toFixed(2) + ' %</td></tr>')}
         }
 
         for (i = categories.length - 1; i >= 0; i--) {
-            tr3Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>' + USDollar.format(categoriesrevenue_p[i]) + '</td><td>' + categoriesattendance_p[i].toFixed(2) + ' %</td></tr>')
+            if(categoriesrevenue_p[i]==0 && categoriesattendance_p[i]==0)
+            {tr3Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>No events</td><td>No events</td></tr>')} else
+            {tr3Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>' + USDollar.format(categoriesrevenue_p[i]) + '</td><td>' + categoriesattendance_p[i].toFixed(2) + ' %</td></tr>')}
         }
 
     } catch {
