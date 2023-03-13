@@ -84,7 +84,7 @@ async function getData() {
 
         let titleElement = document.getElementById("details");
         titleElement.scrollIntoView();
-        
+
     } catch {
         console.log('API Error')
     }

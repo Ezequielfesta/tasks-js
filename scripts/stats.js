@@ -93,15 +93,13 @@ async function getData() {
         let tr3Element = document.getElementById("tr3");
 
         for (i = categories.length - 1; i >= 0; i--) {
-            if(categoriesrevenue_u[i]==0 && categoriesattendance_u[i]==0)
-            {tr2Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>No events</td><td>No events</td></tr>')} else
-            {tr2Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>' + USDollar.format(categoriesrevenue_u[i]) + '</td><td>' + categoriesattendance_u[i].toFixed(2) + ' %</td></tr>')}
+            if (categoriesrevenue_u[i] == 0 && categoriesattendance_u[i] == 0)
+            { tr2Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>No events</td><td>No events</td></tr>') }
+            else { tr2Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>' + USDollar.format(categoriesrevenue_u[i]) + '</td><td>' + categoriesattendance_u[i].toFixed(2) + ' %</td></tr>') }
         }
 
         for (i = categories.length - 1; i >= 0; i--) {
-            if(categoriesrevenue_p[i]==0 && categoriesattendance_p[i]==0)
-            {tr3Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>No events</td><td>No events</td></tr>')} else
-            {tr3Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>' + USDollar.format(categoriesrevenue_p[i]) + '</td><td>' + categoriesattendance_p[i].toFixed(2) + ' %</td></tr>')}
+            if (categoriesrevenue_p[i] == 0 && categoriesattendance_p[i] == 0) { tr3Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>No events</td><td>No events</td></tr>') } else { tr3Element.insertAdjacentHTML('afterEnd', '<tr><td>' + categories[i] + '</td><td>' + USDollar.format(categoriesrevenue_p[i]) + '</td><td>' + categoriesattendance_p[i].toFixed(2) + ' %</td></tr>') }
         }
 
     } catch {
