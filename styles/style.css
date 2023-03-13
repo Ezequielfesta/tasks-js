@@ -295,3 +295,7 @@ h3, h5 {
 .img-details {
     height: 15rem;
 }
+
+td {
+    vertical-align: middle;
+}
