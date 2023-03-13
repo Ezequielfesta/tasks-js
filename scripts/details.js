@@ -81,6 +81,10 @@ async function getData() {
         cardcol1Element.appendChild(cardpriceElement);
         cardcol2Element.appendChild(datetextElement);
         cardcol3Element.appendChild(cardanchorElement);
+
+        let titleElement = document.getElementById("details");
+        titleElement.scrollIntoView();
+        
     } catch {
         console.log('API Error')
     }

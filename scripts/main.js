@@ -94,7 +94,7 @@ async function getData() {
               cardpriceElement.innerHTML = "<b>Price:</b><br>$ " + data.events[i].price;
               let cardanchorElement = document.createElement("a");
               cardanchorElement.className = "btn btn-dark crazyborder";
-              cardanchorElement.href = "./details.html?id=" + data.events[i]._id + "#details";
+              cardanchorElement.href = "./details.html?id=" + data.events[i]._id;
               cardanchorElement.innerHTML = "Details";
 
               cardcontainerElement.appendChild(cardElement);
